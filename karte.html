@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bitcoin-Kennzahlen</title>
+
+    <!-- Bootstrap -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Leaflet -------->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <!-- Leaflet Ende --->
+      
+    <style>
+    
+        path { 
+            stroke: #587993;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: grey;
+            stroke-width: 2;
+            shape-rendering: crispEdges;
+        }
+
+        rect {
+              fill: #fff;
+        }
+
+        .overlay {
+            fill: none;
+            pointer-events: all;
+        }
+        .area {
+            fill: none;
+            stroke-width: 0;
+        }
+        
+        .navbar-brand {
+            font-size: 1.7em;
+        }
+        
+            
+        .navbar-default {
+            background-color: #587993;
+            border-color: #587993;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+            color: #bdd1e1;
+        }
+        .navbar-default .navbar-text {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+            color: #bdd1e1;
+        }
+        .navbar-default .navbar-nav > li > .dropdown-menu {
+            background-color: #587993;
+        }
+        .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+            color: #bdd1e1;
+            background-color: #951d40;
+        }
+        .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+            background-color: #587993;
+        }
+        .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+            color: #bdd1e1;
+            background-color: #951d40;
+        }
+        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+            color: #bdd1e1;
+            background-color: #951d40;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: #951d40;
+        }
+        .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+            background-color: #951d40;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+            color: #bdd1e1;
+        }
+
+        @media (max-width: 767px) {
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #ecf0f1;
+              }
+              .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #bdd1e1;
+              }
+              .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #bdd1e1;
+                background-color: #951d40;
+              }
+        }
+        .navbar {
+            background-color: #587993;
+        }
+        
+    </style>
+  </head>
+  <body>
+        <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">BTC-Kennzahlen</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="uebersicht.html" >Übersicht</a></li>
+                    <li><a href="topliste.html" >Top 50 Addressen</a></li>
+                    <li><a href="btcuebersicht.html" >Verteilung</a></li>
+                    <li class="active"><a href="karte.html" >Karte</a></li>
+                    <li><a href="chart.html" >Graphen</a></li>
+                    <li><a href="about.html" >Über</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" style="display:inline;">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="searchValue" id="searchValue" placeholder="Suche: Block, Adresse, Transaktion" style="margin-right:0;" />
+
+                        <span class="input-group-btn" style="width: 13%;">
+                            <button id="findMyValue" class="btn bt-default">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- End of Navbar -->
+      <!-- Start of content -->
+      <div class="container" id="topContainer">
+        <div class="row" id="searchresults">
+            <div class="col-md-8" id="topRow">
+                <div id="map" style="height:600px; width: 100%;"></div>
+            </div>
+            <div class="col-md-4" id="topRow">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Karte der aktiven Bitcoin-Knoten</div>
+                    <div class="panel-body">
+                        <p>Auf der Karte sieht man die aktiven Bitcoin-Knoten. Dabei wird bei dem gesammten Netzwerk für eine IP Addresse nur ein Marker gesetzt. Die List unten zählt jeden Knoten, auch wenn diese die gleiche IP-Addresse haben. Die  Liste ist numerisch geordnete und zeigt die Knoten in den jeweiligen Ländern. Dabei ist zubeachten, dass sowohl auf der Karte als auch in der Liste versucht wurde mithilfe der IP-Addresse des Knoten seine Geoposition zu ermitteln. Es handelt sich hierbei also nur um geschätze Positionen.</p>
+                    </div>
+                    <!-- List div -->
+                    <div id="knotenliste"></div>
+                </div>
+            </div>
+        </div>
+      </div>
+    
+      
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+      
+      
+
+      <!--- Leaflet Javascript --->
+      <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+      <link rel="stylesheet" href="js/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+      <link rel="stylesheet" href="js/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+      <script src="js/bower_components/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+      <script>
+          
+          var map = L.map('map').fitWorld();
+          L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+          
+                  
+          var peerNodes = new L.LayerGroup();
+          $.getJSON("php/kartemarker.php", function(data){
+              $.each(data, function(i, latlng) {
+                  L.marker([latlng[0],latlng[1]]).addTo(peerNodes);
+              });
+          });
+          
+          /*
+          var peerNodes = new Array();
+          $.getJSON("php/kartemarker.php", function(data){
+              $.each(data, function(i, latlng) {
+                  var tmp = [latlng[0],latlng[1]];
+                  peerNodes.push(tmp);
+              });
+          });
+          console.log(peerNodes.length);
+          */
+          
+          
+          // Liste der Länder und der Anzahl mit denen der Server verbunden ist
+          var liste = '<ul class="list-group"> ';
+          $.getJSON("php/kartegesliste.php", function(data){
+              $.each(data, function(key, val) {
+                  liste = liste + '<li class="list-group-item"><span class="badge">' + val + '</span>'+ key +'</li>'
+              });
+              liste = liste + ' </ul>'
+              $("#knotenliste").html(liste);
+            });
+          
+          
+          /*
+          // Gleiche Liste wie drüber nur gibt sie die Punkte aus die mit dem lokalen Knoten verbunden sind
+          var liste = '<ul class="list-group"> ';
+          $.getJSON("php/karteliste.php", function(data){
+              $.each(data, function(key, val) {
+                  liste = liste + '<li class="list-group-item"><span class="badge">' + val + '</span>'+ key +'</li>'
+              });
+              liste = liste + ' </ul>'
+              $("#knotenliste").html(liste);
+            });
+          
+          */
+          
+          
+          
+          // Marker aller Knoten im Netzwerk
+          var networkNodes = L.markerClusterGroup();
+          $.getJSON("php/kartegesmarker.php", function(data){
+              $.each(data, function(i, latlng) {
+                  networkNodes.addLayer(L.marker([latlng[0],latlng[1]]).addTo(networkNodes));
+                  
+              });
+          });
+          
+          //Layer
+            var overlays = {
+			"Mit dem Server verbunden": peerNodes,
+            "Das gesammte Netzwerk": networkNodes,
+		};
+
+		L.control.layers(null, overlays).addTo(map);
+        networkNodes.addTo(map);
+        //map.addLayer(networkNodes);
+
+          
+      </script>
+      <!--- Leaflet Javascript Ende --->
+      <!-- Suche: --->
+      <script>
+          $("#findMyValue").click(function(event) {
+              event.preventDefault();
+              if ($("#searchValue").val()!="") {
+                  $.get("/php/suche.php?searchValue="+$("#searchValue").val(), function(data){
+                      $("#searchresults").html(data);
+                  });
+              } else {
+              
+              }
+        });
+      </script>
+
+  </body>
+</html>
