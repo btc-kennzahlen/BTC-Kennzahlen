@@ -42,7 +42,7 @@ Mit
 ```
 npm start
 ```
-kann Überprüft werden ob alles ordnungsgemäß läuft. Wenn ohne es Fehlermeldung startet, mit “Strg+C” abbrechen. Es kann insight-api installiert werden.
+kann Überprüft werden ob alles ordnungsgemäß läuft. Wenn es ohne Fehlermeldung startet, mit “Strg+C” abbrechen. Es kann insight-api installiert werden.
 
 Auf dem Beispiel System wurde dazu im Home-Verzeichnis folgender Befehl ausgeführt:
 ```
