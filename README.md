@@ -84,7 +84,8 @@ git clone https://github.com/btc-kennzahlen/BTC-Kennzahlen.git
 ```
 Auf dem Beispiel System heißt der Ordner “BTC-Kennzahlen”. In diesem Ordner wird nun ein Parser installiert, welcher die Blockchain durchläuft und Daten in einer Datei speichert. Den Parser inklusive Installationsanleitung findet man hier:  [https://github.com/znort987/blockparser] (https://github.com/znort987/blockparser)
 
-Um den Parser auf dem Beispiel System zu installieren wurde wiefolgt vorgegangen:
+Um den Parser auf dem Beispiel System zu installieren wurde wiefolgt vorgegangen.
+
 Zunächst wurden die benötigten Abhängigkeiten installiert:
 ```
 apt-get install libssl-dev build-essential g++ libboost-all-dev libsparsehash-dev git-core perl
