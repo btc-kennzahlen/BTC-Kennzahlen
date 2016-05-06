@@ -77,7 +77,7 @@ Mit dem obigen Befehl wird die API gestartet und beginnt automatisch mit dem her
 Dieser Vorgang kann einige Tage dauern. Außerdem muss jeder Zeit im Hintergrund die insight-api laufen.
 
 
-Nachdem die insight-api installiert und die Blockchain heruntergeladen wurde, wird jetzt in dem Home-Verzeichnis ein neuer Ordner angelegt und die Dateien für das BTC-Kennzahlensystem herrein kopiert. Die Daten können direkt von github geclont werden.
+Nachdem die insight-api installiert und die Blockchain heruntergeladen wurde, wird jetzt in dem Home-Verzeichnis ein neuer Ordner angelegt und die Dateien für das BTC-Kennzahlensystem herein kopiert. Die Daten können direkt von github geclont werden.
 ```
 cd /home/$user/
 git clone https://github.com/btc-kennzahlen/BTC-Kennzahlen.git
