@@ -65,7 +65,7 @@ if(count($durchschnittarray) > 3 ) {
 }
 
 
-date_default_timezone_set("UTC");
+date_default_timezone_set("Europa/Berlin");
     
 $inmin = ($bitcoin->getnetworkhashps(-1, -1))/60;
 
@@ -138,7 +138,7 @@ $table = '
             <td class="text-right">'.$avgtrx.'</td> 
         </tr>
         <tr>
-            <td>Zeitstempel des letzten Blocks in UTC</td>
+            <td>Zeitstempel des letzten Blocks</td>
             <td class="text-right">'.date("H:i:s", $blocktime).'</td> 
         </tr>
         <tr>
