@@ -112,15 +112,15 @@ $table = '
         </tr>
         <tr>
             <td>Bitcoins im Umlauf</td>
-            <td class="text-right">'.$totalbtc.'</td> 
+            <td class="text-right">'.number_format($totalbtc,8,',','.').'</td> 
         </tr>
         <tr>
             <td>Transaktionen</td>
-            <td class="text-right">'.$anztrx.'</td> 
+            <td class="text-right">'.number_format($anztrx,0,',','.').'</td> 
         </tr>
         <tr>
             <td>Gehandeltes Volumen</td>
-            <td class="text-right">'.$vol.'</td> 
+            <td class="text-right">'.number_format($vol,0,',','.').'</td> 
         </tr>
     </table>
 </div>
@@ -131,11 +131,11 @@ $table = '
         </tr>
         <tr>
             <td>Anzahl der Blöcke</td>
-            <td class="text-right">'.$bitcoin->getblockcount() .'</td> 
+            <td class="text-right">'.number_format($bitcoin->getblockcount(),0,',','.').'</td> 
         </tr>
         <tr>
             <td>Durchschnittliche Transaktionen pro Block</td>
-            <td class="text-right">'.$avgtrx.'</td> 
+            <td class="text-right">'.number_format($avgtrx,0,',','.').'</td> 
         </tr>
         <tr>
             <td>Zeitstempel des letzten Blocks</td>
