@@ -70,7 +70,7 @@ Der “rpcuser” Name sowie das “rpcpassword” kann frei gewählt werden, mu
 Jetzt kann damit begonnen werden die Blockchain über die insight-api herunterzuladen. 
 ```
 cd /home/$user/mynode
-cd /home/$user/bitcore-node/bin/bitcore-node start
+/home/$user/bitcore-node/bin/bitcore-node start
 ```
 Mit dem obigen Befehl wird die API gestartet und beginnt automatisch mit dem herunterladen der Blockchain. Wichtig ist, dass dieser Befehl ausgeführt wird während man in dem “mynode”-Verzeichnis ist, da sonst nicht die Blockchain für die insight-api mit bezug auf die entsprechende Konfigurationsdatei heruntergeladen wird. 
 
