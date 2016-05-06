@@ -21,118 +21,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
       
-    <style>
-    
-        path { 
-            stroke: #587993;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: grey;
-            stroke-width: 2;
-            shape-rendering: crispEdges;
-        }
-
-        rect {
-              fill: #fff;
-        }
-
-        .overlay {
-            fill: none;
-            pointer-events: all;
-        }
-        .area {
-            fill: none;
-            stroke-width: 0;
-        }
-        
-        .navbar-brand {
-            font-size: 1.7em;
-        }
-        
-            
-        .navbar-default {
-            background-color: #587993;
-            border-color: #587993;
-        }
-        .navbar-default .navbar-brand {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-            color: #bdd1e1;
-        }
-        .navbar-default .navbar-text {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > a {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-            color: #bdd1e1;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu {
-            background-color: #587993;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-            color: #bdd1e1;
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
-            background-color: #587993;
-        }
-        .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-            color: #bdd1e1;
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-            color: #bdd1e1;
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-toggle {
-            border-color: #951d40;
-        }
-        .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-toggle .icon-bar {
-            background-color: #ecf0f1;
-        }
-        .navbar-default .navbar-collapse,
-        .navbar-default .navbar-form {
-            border-color: #ecf0f1;
-        }
-        .navbar-default .navbar-link {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-link:hover {
-            color: #bdd1e1;
-        }
-
-        @media (max-width: 767px) {
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-                color: #ecf0f1;
-              }
-              .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-                color: #bdd1e1;
-              }
-              .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-                color: #bdd1e1;
-                background-color: #951d40;
-              }
-        }
-        .navbar {
-            background-color: #587993;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
         <div class="navbar navbar-default">
@@ -192,9 +81,9 @@
                     <!-- Default panel contents -->
                     <div class="panel-heading">Das bietet ihnen Bitcoin-Kennzahlen</div>
                         <div class="panel-body">
-                        <p>Die Seite Bitcoin-Kennzahlen bietet ihnen aufbereitete Informationen aus der Welt der Bitcoins<br>
+                        <p>Die Seite Bitcoin-Kennzahlen bietet ihnen aufbereitete Informationen aus der Welt der Bitcoins.<br>
                             So werden auf der Übersichtsseite unterschiedliche aktuelle Kennzahlen angezeigt. <br>
-                            Die Topliste zeigt die 50 Bitcoin Addressen mit den höchsten Bitcoin werten. <br>
+                            Die Topliste zeigt die 50 Addressen mit den höchsten Bitcoin beträgen. <br>
                             Auf der Verteilungsseite sieht man, wie sich die Bitcoins auf die Addressen verteilen. <br>
                             Die Karte bietet eine Übersicht darüber, wo sich die Bitcoin-Knoten auf der Welt befinden. <br>
                             Auf der Graphen-Seite kann der zeitliche Verlauf von Transaktionen und Blöcken im Netzwerk betrachtet und verglichen werden. <br>
@@ -217,6 +106,8 @@
       <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
       
       <script src="http://127.0.0.1:3001/socket.io/socket.io.js"></script>
+      
+      <!-- Hier ist der Live-Ticker-Code--->
       <script>
         angular.module('MyApp', []).controller('MainController', [ '$scope', '$sce',  function($scope, $sce) {
             eventToListenTo = 'tx'
@@ -242,6 +133,7 @@
             $scope.rows.unshift(rows);
         }]);
       </script>
+      
       <!-- Suche: --->
       <script>
           $("#findMyValue").click(function(event) {

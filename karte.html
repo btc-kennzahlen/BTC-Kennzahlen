@@ -25,118 +25,28 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <!-- Leaflet Ende --->
       
-    <style>
-    
-        path { 
-            stroke: #587993;
-            stroke-width: 2;
-            fill: none;
-        }
+    <link rel="stylesheet" href="css/style.css">
+      <style>
+          .glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+ 
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+ 
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+ 
+.glyphicon-left {
+    margin-right: 7px;
+}
 
-        .axis path,
-        .axis line {
-            fill: none;
-            stroke: grey;
-            stroke-width: 2;
-            shape-rendering: crispEdges;
-        }
-
-        rect {
-              fill: #fff;
-        }
-
-        .overlay {
-            fill: none;
-            pointer-events: all;
-        }
-        .area {
-            fill: none;
-            stroke-width: 0;
-        }
-        
-        .navbar-brand {
-            font-size: 1.7em;
-        }
-        
-            
-        .navbar-default {
-            background-color: #587993;
-            border-color: #587993;
-        }
-        .navbar-default .navbar-brand {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-            color: #bdd1e1;
-        }
-        .navbar-default .navbar-text {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > a {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-            color: #bdd1e1;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu {
-            background-color: #587993;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-            color: #bdd1e1;
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
-            background-color: #587993;
-        }
-        .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-            color: #bdd1e1;
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-            color: #bdd1e1;
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-toggle {
-            border-color: #951d40;
-        }
-        .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-            background-color: #951d40;
-        }
-        .navbar-default .navbar-toggle .icon-bar {
-            background-color: #ecf0f1;
-        }
-        .navbar-default .navbar-collapse,
-        .navbar-default .navbar-form {
-            border-color: #ecf0f1;
-        }
-        .navbar-default .navbar-link {
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-link:hover {
-            color: #bdd1e1;
-        }
-
-        @media (max-width: 767px) {
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-                color: #ecf0f1;
-              }
-              .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-                color: #bdd1e1;
-              }
-              .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-                color: #bdd1e1;
-                background-color: #951d40;
-              }
-        }
-        .navbar {
-            background-color: #587993;
-        }
-        
-    </style>
+      </style>
   </head>
   <body>
         <div class="navbar navbar-default">
@@ -188,6 +98,12 @@
                     </div>
                     <!-- List div -->
                     <div id="knotenliste"></div>
+                    <div id="loading" style="text-align:center">
+                        <button class="btn ">
+                            <span class='glyphicon-left glyphicon glyphicon-refresh spinning'></span>Liste wird geladen...
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -222,17 +138,6 @@
               });
           });
           
-          /*
-          var peerNodes = new Array();
-          $.getJSON("php/kartemarker.php", function(data){
-              $.each(data, function(i, latlng) {
-                  var tmp = [latlng[0],latlng[1]];
-                  peerNodes.push(tmp);
-              });
-          });
-          console.log(peerNodes.length);
-          */
-          
           
           // Liste der Länder und der Anzahl mit denen der Server verbunden ist
           var liste = '<ul class="list-group"> ';
@@ -242,21 +147,8 @@
               });
               liste = liste + ' </ul>'
               $("#knotenliste").html(liste);
+              $("#loading").toggle();
             });
-          
-          
-          /*
-          // Gleiche Liste wie drüber nur gibt sie die Punkte aus die mit dem lokalen Knoten verbunden sind
-          var liste = '<ul class="list-group"> ';
-          $.getJSON("php/karteliste.php", function(data){
-              $.each(data, function(key, val) {
-                  liste = liste + '<li class="list-group-item"><span class="badge">' + val + '</span>'+ key +'</li>'
-              });
-              liste = liste + ' </ul>'
-              $("#knotenliste").html(liste);
-            });
-          
-          */
           
           
           
