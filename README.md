@@ -92,14 +92,14 @@ apt-get install libssl-dev build-essential g++ libboost-all-dev libsparsehash-de
 ```
 Anschließend der Parser von github geclont:
 ```
-cd /home/$user/btc-kennzahlen/
+cd /home/$user/BTC-Kennzahlen/
 mkdir parser
 cd parser
 git clone git://github.com/znort987/blockparser.git
 ```
 Der Parser erwartet die Blockchain in dem Standart-Ordner /home/$user/.bitcoin. Da die Blockchain in dem Beispiel System aber in dem mynode-Ordner liegt, findet der Parser die Block-Dateien nicht. Dies kann leicht behoben werden, indem in der Datei parser.cpp die Zeile 76 angepasst wird
 ```
-gedit home/$user/btc-kennzahlen/parser/blockparser/parser.cpp
+gedit /home/$user/BTC-Kennzahlen/parser/blockparser/parser.cpp
 ```
  Von
 ```
@@ -113,7 +113,7 @@ static auto kCoinDirName = “mynode/data”;
 Jetzt kann mit
 ```
 cd blockparser
-make
+./make
 ```
 der Code für den Parser kompiliert werden. Mit einem Testlauf kann überprüft werden, ob der Parser richtig arbeitet.
 ```
@@ -138,7 +138,7 @@ npm install bower -g
 ```
 Anschließend wird über bower markcluster installiert.
 ```
-cd /home/$user/btc-kennzahlen
+cd /home/$user/BTC-Kennzahlen
 mkdir js
 cd js
 bower install leaflet.markercluster
@@ -153,7 +153,7 @@ Als letzte Komponente für BTC-Kennzahlen wird jetzt noch GeoIP2 inklusive der G
 
 Auf dem Beispiel System wurde hierzu wiefolgt vorgegangen:
 ```
-cd /home/$user/btc-kennzahlen/php
+cd /home/$user/BTC-Kennzahlen/php
 curl -sS https://getcomposer.org/installer | php
 php composer.phar require geoip2/geoip2:~2.0
 ```
@@ -169,8 +169,8 @@ Damit alles richtig auf der Webseite angezeigt wird, müssen folgende Befehle au
 ```
 cd parser/
 cd blockparser/
-./parser allbalances  > /home/$user/webserver/parser/allbalances
-./parser simple  > /home/$user/webserver/parser/simplestats
+./parser allbalances  > /home/$user/BTC-Kennzahlen/parser/allbalances
+./parser simple  > /home/$user/BTC-Kennzahlen/parser/simplestats
 ```
 Diese Befehle nutzen den blockparser, welcher die gesammte blockchain durchläuft und die Ergebnisse in einer Datei speichert. Die allbalances Datei ist mehrere Gigabyte groß. Der Vorgang benötigt etwas Zeit. Je nach System dauert dies unterschiedlich lange.
 Der allbalance-Befehl wird benutzt um die Seite “Top 50” und “Verteilung” mit Daten zu versorgen.
