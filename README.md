@@ -177,7 +177,7 @@ Der allbalance-Befehl wird benutzt um die Seite “Top 50” und “Verteilung�
 
 Der simplestats-Befehl wird für die “Übersichts”-Seite genutzt und benötigt weniger Zeit und Ressourcen von dem System als der allbalance-Befehl.
 
-btchistory.php: Das php-script “btchistory” wird benutzt um die Blockchain komplett auszulesen und die “Graphen”-Seite mit Informationen zu versorgen.
+blockhistory.php: Das php-script “btchistory” wird benutzt um die Blockchain komplett auszulesen und die “Graphen”-Seite mit Informationen zu versorgen.
 
 btcverteilung.php: Das script verarbeitet die allbalance Datei die von dem Blockparser erstellt wird.
 
