@@ -130,6 +130,7 @@ Für die Karten Darstellung wird leaflet inklusive der markercluster Erweiterung
 
 
 Auf dem Beispiel System wurde für die Installation von markercluster wiefolgt vorgegangen:
+
 Die Erweiterung wird mit bower installiert. Um bower auf dem System zu installieren wird sowohl nodejs als auch npm benötigt. Mithilfe von npm kann dann bower installiert werden. 
 ```
 apt-get install npm nodejs
