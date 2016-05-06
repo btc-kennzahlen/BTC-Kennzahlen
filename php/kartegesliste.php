@@ -23,8 +23,6 @@ $coordinates = (array) $corarr['nodes'];
 
 $nodearray = array_keys($coordinates);
 
-//print_r ($nodearray);
-
 $locationcounter = array();
 foreach ($nodearray as $element) {
     if ($element != null && isip($element)) {

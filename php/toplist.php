@@ -3,19 +3,34 @@
 // Um die Datei zu erstellen benutze:
 // cd parser/
 // cd blockparser/
-// ./parser allbalances --limit=50 > /home/sven/webserver/parser/top
+// ./parser allbalances  > /home/sven/webserver/parser/allbalances
 
-$file = fopen("../parser/top","r");
+$file = fopen("../parser/allbalances","r");
 
 $info = "";
 $month = "";
 $toggle = false;
+$i = 0;
 
-while(!feof($file)) {
+// Die erste Ziffer gibt an wieviele Zeilen vor den eigentlichen Addressen kommen
+// Die zweite Ziffer gibt an wieviele Addressen dargestellt werden sollen
+$j = 6 + 50;
+
+while(!feof($file) && $i < $j) {
     $row = fgets($file,10000);
     if (preg_match("^([0-9]+).([0-9]{8})^",$row, $matches)) {
         
         $rowarr = preg_split('/ /', $row, -1, PREG_SPLIT_NO_EMPTY);
+        
+        
+        
+        $never = "00:00:00 1. Januar 1970
+";
+        $lastdate = $rowarr[13]." ".$rowarr[12].". ".monthchecker($rowarr[11])." ".$rowarr[14];
+        if ($never == $lastdate) {
+            $lastdate = "---";
+        } 
+        
         
         $info = $info."<tr>
                         <td>".$rowarr[0]."</td>
@@ -24,9 +39,10 @@ while(!feof($file)) {
                         <td>".$rowarr[3]."</td>
                         <td>".$rowarr[7]." ".$rowarr[6].". ".monthchecker($rowarr[5])." ".$rowarr[8]."</td>
                         <td>".$rowarr[9]."</td>
-                        <td>".$rowarr[13]." ".$rowarr[12].". ".monthchecker($rowarr[11])." ".$rowarr[14]."</td>
+                        <td>".$lastdate."</td>
                     </tr>";
     }
+    $i++;
 }
 fclose($file);
 

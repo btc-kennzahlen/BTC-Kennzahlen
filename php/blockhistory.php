@@ -2,12 +2,20 @@
 // Parst Informationen Für die Graphen. Es wird die gesammte Blockchain bis zum Aktuellen Block gelesen. 
 // Der Vorgang dauert einige Minuten.
 
+
+
+//Start Werte für das Live-Net
+//$hash = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"; // Blockhash von dem ersten Block 
+//$ts = 1231006505; // Zeitpunkt des ersten Blocks
+
 // Start Werte für das Test-Net
-$height = 0;
-$hash = "000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"; 
+$hash = "000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"; // Blockhash von dem ersten Block
+$ts = 1296688602; // Zeitpunkt des ersten Blocks
+
+
 $trx = 0; 
 $blk = 0; 
-$ts = 1296688602; 
+$height = 0; 
 $timestamp = strtotime('+1 day', $ts);
     
 // Latest Blockhash
@@ -68,7 +76,6 @@ while ($height <= $latestblockheight) {
         $blkrow['blk']= $blk;
         $trxarray[] = $trxrow;
         $blkarray[] = $blkrow;
-        //$blkarray[gmdate("d-m-Y",$    timestamp)] = $blk;
         echo "Zeit:  ".gmdate("d-m-Y",$timestamp)."\r\n";
         echo "Trx :  ".$trx."\r\n";
         echo "Block: ".$blk."\r\n";
@@ -85,7 +92,6 @@ while ($height <= $latestblockheight) {
                 $blkrow['blk']= $blk;
                 $trxarray[] = $trxrow;
                 $blkarray[] = $blkrow;
-                //$blkarray[gmdate("d-m-Y",$timestamp)] = $blk;
                 echo "Zeit:  ".gmdate("d-m-Y",$timestamp)."\r\n";
                 echo "Trx :  ".$trx."\r\n";
                 echo "Block: ".$blk."\r\n";
@@ -100,8 +106,8 @@ while ($height <= $latestblockheight) {
 }
 
 //Speichert als json
-file_put_contents('data.json', json_encode($trxarray));
-file_put_contents('blk.json', json_encode($blkarray));
+//file_put_contents('data.json', json_encode($trxarray));
+//file_put_contents('blk.json', json_encode($blkarray));
 
 //Speichert Transaktionen als tsv
 $trxarrayheader = array ("date" , "trx");

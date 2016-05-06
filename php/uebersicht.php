@@ -12,6 +12,7 @@ require_once 'jsonRPCClient.php';
 // Hier die RPC-Call Daten für die API eingeben:
 $bitcoin = new jsonRPCClient('http://bitcoinrpc:7CUFYjTDpMXGtKLiiffRbS5zCeZKtMpcemHE5QNqvkpC@127.0.0.1:18332/');
 
+
 $blockchaininfo = ($bitcoin->getblockchaininfo());
 $estimatefee = ($bitcoin->estimatefee(1));
 
@@ -102,21 +103,6 @@ while(!feof($file)) {
 }
 fclose($file);
 
-
-/*
-$url = "http://localhost:3001/insight-api/status?q=getinfo";
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_URL, $url);  
-curl_setopt($ch, CURLOPT_HEADER, 0);  
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
-$output = curl_exec($ch);
-curl_close($ch);
-
-$miningdif = json_decode($output);
-
-$mining =  $miningdif->info->difficulty;
-*/
 
 $table = '
 <div class="table-responsive">
