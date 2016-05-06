@@ -145,7 +145,7 @@ bower install leaflet.markercluster
 ```
 
 
-Als letzte Komponente für BTC-Kennzahlen wird jetzt noch GeoIP2 inklusive der GeoLite2 City auf dem System installiert.
+Als letzte Komponente für BTC-Kennzahlen wird jetzt noch GeoIP2 inklusive der GeoLite2 City Datenbank auf dem System installiert.
 
 [GeoIP2] (https://github.com/maxmind/GeoIP2-php)
 
