@@ -72,12 +72,12 @@ Jetzt kann damit begonnen werden die Blockchain über die insight-api herunterzu
 cd /home/$user/mynode
 cd /home/$user/bitcore-node/bin/bitcore-node start
 ```
-Mit dem obigen Befehl wird die API gestartet und beginnt automatisch mit dem Herrunterladen der Blockchain. Wichtig ist, dass dieser Befehl ausgeführt wird während man in dem “mynode”-Verzeichnis ist, da sonst nicht die Blockchain für die insight-api mit bezug auf die entsprechende Konfigurationsdatei herruntergeladen wird. 
+Mit dem obigen Befehl wird die API gestartet und beginnt automatisch mit dem herunterladen der Blockchain. Wichtig ist, dass dieser Befehl ausgeführt wird während man in dem “mynode”-Verzeichnis ist, da sonst nicht die Blockchain für die insight-api mit bezug auf die entsprechende Konfigurationsdatei heruntergeladen wird. 
 
 Dieser Vorgang kann einige Tage dauern. Außerdem muss jeder Zeit im Hintergrund die insight-api laufen.
 
 
-Nachdem die insight-api installiert und die Blockchain herrunter geladen wurde, wird jetzt in dem Home-Verzeichnis ein neuer Ordner angelegt und die Dateien für das BTC-Kennzahlensystem herrein kopiert. Die Daten können direkt von github geclont werden.
+Nachdem die insight-api installiert und die Blockchain heruntergeladen wurde, wird jetzt in dem Home-Verzeichnis ein neuer Ordner angelegt und die Dateien für das BTC-Kennzahlensystem herrein kopiert. Die Daten können direkt von github geclont werden.
 ```
 cd /home/$user/
 git clone https://github.com/btc-kennzahlen/BTC-Kennzahlen.git
@@ -158,7 +158,7 @@ curl -sS https://getcomposer.org/installer | php
 php composer.phar require geoip2/geoip2:~2.0
 ```
 
-Die Datenbank GeoLite2 City wird von der oben angegebenen Seite in der MaxMind DB binary,zipped Variante herrunter geladen und in dem Ordner 
+Die Datenbank GeoLite2 City wird von der oben angegebenen Seite in der MaxMind DB binary,zipped Variante heruntergeladen und in dem Ordner 
 /home/$user/btc-kennzahlen/php/GeoLite2DB
 entpackt. Die Datenbank muss von Zeit zur Zeit aktualisiert werden, sonst kann es zu Fehlern kommen und die Tabelle auf der Seite “Karte” wird nicht mehr angezeigt.
 
