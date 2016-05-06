@@ -162,7 +162,7 @@ Die Datenbank GeoLite2 City wird von der oben angegebenen Seite in der MaxMind D
 /home/$user/btc-kennzahlen/php/GeoLite2DB
 entpackt. Die Datenbank muss von Zeit zur Zeit aktualisiert werden, sonst kann es zu Fehlern kommen und die Tabelle auf der Seite “Karte” wird nicht mehr angezeigt.
 
-Alle Komponenten auf dem System installiert.
+Alle Komponenten sind auf dem System installiert.
 
 # Vor der ersten Ausführung
 Damit alles richtig auf der Webseite angezeigt wird, müssen folgende Befehle ausgeführt werden:
