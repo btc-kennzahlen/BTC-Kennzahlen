@@ -168,7 +168,7 @@ Damit alles richtig auf der Webseite angezeigt wird, müssen folgende Befehle au
 cd parser/
 cd blockparser/
 ./parser allbalances  > /home/$user/webserver/parser/allbalances
-./parser simple  > /home/sven/webserver/parser/simplestats
+./parser simple  > /home/$user/webserver/parser/simplestats
 ```
 Diese Befehle nutzen den blockparser, welcher die gesammte blockchain durchläuft und die Ergebnisse in einer Datei speichert. Die allbalances Datei ist mehrere Gigabyte groß. Der Vorgang benötigt etwas Zeit. Je nach System dauert dies unterschiedlich lange.
 Der allbalance-Befehl wird benutzt um die Seite “Top 50” und “Verteilung” mit Daten zu versorgen.
