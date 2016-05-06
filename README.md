@@ -3,9 +3,13 @@ Dieses Projekt ist im Rahmen eines Master Projekts an dem Institut für Internet
 
 # Inbetriebnahme
 Als Grundsystem wird ein 64-Bit Linux benötigt. Mit ausreichend Speicherplatz und einer großen Swap-Partition (20+ Gig). Außerdem wird ein Webserver und php auf dem System benötigt.
+
 Die benötigten Daten werden Hauptsächlich aus der Blockchain gezogen. Hierfür wird die Bitcoin-Blockchain so wie die insight-api von Bitpay lokal auf dem System benötigt. Da die insight-api auf bitcore-node von bitpay aufsetzt und dieser die Blockchain pflegt, reicht es dieses System zu installieren.
+
 [bitcore-node] (https://github.com/bitpay/bitcore-node)
+
 [insight-API] (https://github.com/bitpay/insight-api)
+
 Auf den jeweiligen github Seiten steht wie die jeweiligen System zu installieren sind. Hierbei ist zu beachten, das zu erst bitcore-node und anschließend die insight-api installiert werden. Die insight-api muss während des Betriebs der Webseite im Hintergrund laufen.
 
 
@@ -39,6 +43,7 @@ Mit
 npm start
 ```
 kann Überprüft werden ob alles ordnungsgemäß läuft. Wenn ohne es Fehlermeldung startet, mit “Strg+C” abbrechen. Es kann insight-api installiert werden.
+
 Auf dem Beispiel System wurde dazu im Home-Verzeichnis folgender Befehl ausgeführt:
 ```
 /home/$user/bitcore-node/bin/bitcore-node create mynode
@@ -68,8 +73,8 @@ cd /home/$user/mynode
 cd /home/$user/bitcore-node/bin/bitcore-node start
 ```
 Mit dem obigen Befehl wird die API gestartet und beginnt automatisch mit dem Herrunterladen der Blockchain. Wichtig ist, dass dieser Befehl ausgeführt wird während man in dem “mynode”-Verzeichnis ist, da sonst nicht die Blockchain für die insight-api mit bezug auf die entsprechende Konfigurationsdatei herruntergeladen wird. 
-Dieser Vorgang kann einige Tage dauern. Außerdem muss jeder Zeit im Hintergrund die insight-api laufen.
 
+Dieser Vorgang kann einige Tage dauern. Außerdem muss jeder Zeit im Hintergrund die insight-api laufen.
 
 
 Nachdem die insight-api installiert und die Blockchain herrunter geladen wurde, wird jetzt in dem Home-Verzeichnis ein neuer Ordner angelegt und die Dateien für das BTC-Kennzahlensystem herrein kopiert. Die Daten können direkt von github geclont werden.
@@ -119,6 +124,7 @@ Wenn dies ohne Fehlermeldung durchlief, ist der blockparser richtig installiert 
 
 
 Für die Karten Darstellung wird leaflet inklusive der markercluster Erweiterung genutzt. leaflet wird wird von einem Content Delivery Network (cdn) gezogen. Die markerlcuster Erweiterung wird lokal auf dem System gespeichert. Zu beachten ist, dass die markercluster mit der leaflet Version übereinstimmt. Zu Zeitpunkt der Abgabe ist leaflet 0.7 die stable Version und es existiert ein 1.0rc. Über das cdn wird die 0.7 Version gezogen, markercluster muss entsprechend der Version angepasst sein.
+
 [Markercluster] (https://github.com/Leaflet/Leaflet.markercluster)
 
 
@@ -137,10 +143,10 @@ bower install leaflet.markercluster
 ```
 
 
-
-
 Als letzte Komponente für BTC-Kennzahlen wird jetzt noch GeoIP2 inklusive der GeoLite2 City auf dem System installiert.
+
 [GeoIP2] (https://github.com/maxmind/GeoIP2-php)
+
 [GeoLite2 City] (https://dev.maxmind.com/geoip/geoip2/geolite2/)
 
 Auf dem Beispiel System wurde hierzu wiefolgt vorgegangen:
@@ -166,6 +172,7 @@ cd blockparser/
 ```
 Diese Befehle nutzen den blockparser, welcher die gesammte blockchain durchläuft und die Ergebnisse in einer Datei speichert. Die allbalances Datei ist mehrere Gigabyte groß. Der Vorgang benötigt etwas Zeit. Je nach System dauert dies unterschiedlich lange.
 Der allbalance-Befehl wird benutzt um die Seite “Top 50” und “Verteilung” mit Daten zu versorgen.
+
 Der simplestats-Befehl wird für die “Übersichts”-Seite genutzt und benötigt weniger Zeit und Ressourcen von dem System als der allbalance-Befehl.
 
 btchistory.php: Das php-script “btchistory” wird benutzt um die Blockchain einmal komplett auszulesen und die “Graphen”-Seite mit Informationen zu versorgen.
