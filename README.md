@@ -10,7 +10,7 @@ Die Daten werden Hauptsächlich aus der Blockchain gezogen. Hierfür wird die Bi
 
 [insight-API] (https://github.com/bitpay/insight-api)
 
-Auf den github Seiten steht wie die jeweiligen System zu installieren sind. Hierbei ist zu beachten, das zu erst bitcore-node und anschließend die insight-api installiert werden. Die insight-api muss während des Betriebs der Webseite im Hintergrund laufen.
+Auf den github Seiten steht wie die jeweiligen Systeme zu installieren sind. Hierbei ist zu beachten, das zu erst bitcore-node und anschließend die insight-api installiert werden. Die insight-api muss während des Betriebs der Webseite im Hintergrund laufen.
 
 
 Hier folgt ein Beispiel wie auf Ubuntu 14.10 vorgegangen wird.
