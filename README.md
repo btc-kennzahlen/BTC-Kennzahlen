@@ -67,7 +67,7 @@ rpcconnect=127.0.0.1
 
 ```
 Der “rpcuser” Name sowie das “rpcpassword” kann frei gewählt werden, muss dann aber in den php-Dateien angepasst werden.
-Jetzt kann das damit begonnen werden die Blockchain über die insight-api herunterzuladen. 
+Jetzt kann damit begonnen werden die Blockchain über die insight-api herunterzuladen. 
 ```
 cd /home/$user/mynode
 cd /home/$user/bitcore-node/bin/bitcore-node start
