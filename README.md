@@ -124,7 +124,7 @@ Wenn dies ohne Fehlermeldung durchlief, ist der blockparser richtig installiert 
 
 
 
-Für die Karten Darstellung wird leaflet inklusive der markercluster Erweiterung genutzt. leaflet wird wird von einem Content Delivery Network (cdn) gezogen. Die markerlcuster Erweiterung wird lokal auf dem System gespeichert. Zu beachten ist, dass die markercluster mit der leaflet Version übereinstimmt. Zu Zeitpunkt der Abgabe ist leaflet 0.7 die stable Version und es existiert ein 1.0rc. Über das cdn wird die 0.7 Version gezogen, markercluster muss entsprechend der Version angepasst sein.
+Für die Karten Darstellung wird leaflet inklusive der markercluster Erweiterung genutzt. leaflet wird wird von einem Content Delivery Network (cdn) gezogen. Die markerlcuster Erweiterung wird lokal auf dem System gespeichert. Zu beachten ist, dass die markercluster mit der leaflet Version übereinstimmt. Zu diesem Zeitpunkt ist leaflet 0.7 die stable Version und es existiert ein 1.0rc. Über das cdn wird die 0.7 Version gezogen, markercluster muss entsprechend der Version angepasst sein.
 
 [Markercluster] (https://github.com/Leaflet/Leaflet.markercluster)
 
