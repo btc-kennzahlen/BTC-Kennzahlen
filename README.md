@@ -4,7 +4,7 @@ Dieses Projekt ist im Rahmen eines Master Projekts an dem Institut für Internet
 # Inbetriebnahme
 Als Grundsystem wird ein 64-Bit Linux benötigt. Mit ausreichend Speicherplatz und einer großen Swap-Partition (20+ Gig). Außerdem wird ein Webserver und php auf dem System benötigt.
 
-Die benötigten Daten werden Hauptsächlich aus der Blockchain gezogen. Hierfür wird die Bitcoin-Blockchain so wie die insight-api von Bitpay lokal auf dem System benötigt. Da die insight-api auf bitcore-node von bitpay aufsetzt und dieser die Blockchain pflegt, reicht es dieses System zu installieren.
+Die Daten werden Hauptsächlich aus der Blockchain gezogen. Hierfür wird die Bitcoin-Blockchain so wie die insight-api von Bitpay lokal auf dem System benötigt. Da die insight-api auf bitcore-node von bitpay aufsetzt und dieser die Blockchain pflegt, reicht es dieses System zu installieren.
 
 [bitcore-node] (https://github.com/bitpay/bitcore-node)
 
