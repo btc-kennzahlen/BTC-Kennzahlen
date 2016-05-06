@@ -95,7 +95,7 @@ Anschließend der Parser von github geclont:
 cd /home/$user/btc-kennzahlen/
 mkdir parser
 cd parser
-git clone github.com:znort987/blockparser.git
+git clone git://github.com/znort987/blockparser.git
 ```
 Der Parser erwartet die Blockchain in dem Standart-Ordner /home/$user/.bitcoin. Da die Blockchain in dem Beispiel System aber in dem mynode-Ordner liegt, findet der Parser die Block-Dateien nicht. Dies kann leicht behoben werden, indem in der Datei parser.cpp die Zeile 76 angepasst wird
 ```
